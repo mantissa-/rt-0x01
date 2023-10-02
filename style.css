@@ -11,7 +11,7 @@ html, body {
     touch-action: none;
 }
 
-#titleWrap {
+/* #titleWrap {
     position: absolute;
     width: 100vw;
     padding: 1vh;
@@ -73,4 +73,4 @@ html, body {
 .navItem:hover {
     background-color: #fff;
     color: black;
-}
+} */
