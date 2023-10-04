@@ -15,6 +15,10 @@ const canvas = document.getElementById("renderCanvas");
             camera.minZ = 0.1;
             camera.lowerRadiusLimit = 0.5;
             camera.upperRadiusLimit = 0.5;
+            camera.lowerAlphaLimit = 0.5;
+            camera.upperAlphaLimit =0.8;
+            camera.lowerBetaLimit = 1;
+            camera.upperBetaLimit = 1.75;
             camera.panningSensibility = 0;
             camera.angularSensibilityX = 2048;
             camera.angularSensibilityY = 2048;
@@ -75,7 +79,7 @@ const canvas = document.getElementById("renderCanvas");
 
             // PARTICLES
             const particles = new BABYLON.ParticleSystem("particles", 1000);
-            particles.createBoxEmitter(new BABYLON.Vector3(0, 0.05, 0), new BABYLON.Vector3(0, 0.1, 0), new BABYLON.Vector3(-2, -2, -2), new BABYLON.Vector3(2, -2, 4));
+            particles.createBoxEmitter(new BABYLON.Vector3(0, 0.025, 0), new BABYLON.Vector3(0, 0.05, 0), new BABYLON.Vector3(-2, -2, -2), new BABYLON.Vector3(2, -2, 4));
             
             particles.emitRate = 256;
             particles.minEmitPower = 10;
@@ -86,7 +90,7 @@ const canvas = document.getElementById("renderCanvas");
             particles.minLifeTime = 5;
             particles.maxLifeTime = 5;
 
-            particles.gravity = new BABYLON.Vector3(0, 1, 0);
+            particles.gravity = new BABYLON.Vector3(0, ``, 0);
             particles.particleTexture = new BABYLON.Texture("assets/white.png",);
 
             particles.start();
@@ -162,7 +166,7 @@ const canvas = document.getElementById("renderCanvas");
             }
 
             // Show Inspector
-            scene.debugLayer.show();
+            // scene.debugLayer.show();
 
             engine.setHardwareScalingLevel(1.15);
 
