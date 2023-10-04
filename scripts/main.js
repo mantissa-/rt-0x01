@@ -32,17 +32,18 @@ const createScene = function () {
     camera.attachControl(canvas, true);
 
     // CAMERA MOVEMENT
-    // scene.onPointerObservable.add((pointerInfo) => {
-    //     switch (pointerInfo.type) {
-    //         case BABYLON.PointerEventTypes.POINTERMOVE:
-    //         console.log(scene.clientX);
-    //         break;
-    //     }
-    // });
+    scene.onPointerObservable.add((pointerInfo) => {
+        switch (pointerInfo.type) {
+            case BABYLON.PointerEventTypes.POINTERMOVE:
+                camera.alpha = 0.5 + ((scene.pointerX / canvas.width) * 0.3);
+                camera.beta = 1 + ((scene.pointerY / canvas.height) * 0.75);
+            break;
+        }
+    });
 
-    var mouseInput = new BABYLON.ArcRotateCameraPointersInput()
-    mouseInput.camera = camera;
-    mouseInput.attachControl();
+    // var mouseInput = new BABYLON.ArcRotateCameraPointersInput()
+    // mouseInput.camera = camera;
+    // mouseInput.attachControl();
 
     
     // FOG
